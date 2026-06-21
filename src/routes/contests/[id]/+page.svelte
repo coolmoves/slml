@@ -77,6 +77,7 @@
           </tbody>
         </table>
       </div>
+    {/if}
   {:else}
     <div class="empty-state card">
       <h2 class="empty-title font-mono">[error: contest not found]</h2>
