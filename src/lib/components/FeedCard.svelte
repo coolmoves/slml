@@ -259,6 +259,14 @@
     color: #e4e4e7;
   }
 
+  .markdown-content :global(.md-image) {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 12px auto;
+    border-radius: var(--radius);
+  }
+
   /* Tags */
   .tags-row {
     display: flex;
