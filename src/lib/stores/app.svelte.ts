@@ -19,7 +19,7 @@ const parsedBlogs: Project[] = Object.entries(blogFiles).map(([path, content]) =
   const id = path.split('/').pop()?.replace('.md', '') || 'p_' + Date.now();
   const title = meta.title || 'Untitled Post';
   const authorId = meta.authorId || 'DefaultUser';
-  const languages = meta.languages ? meta.languages.split(',').map(l => l.trim()) : ['TypeScript'];
+  const languages = meta.languages ? meta.languages.split(',').map(l => l.trim()) : ['Misc'];
   const tags = meta.tags ? meta.tags.split(',').map(t => t.trim()) : [];
 
   return {
