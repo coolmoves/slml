@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { app } from '$lib/stores/app.svelte';
+  import { base } from '$app/paths';
 
   const contestId = $derived($page.params.id);
   const problemId = $derived($page.params.problemId);
@@ -52,7 +53,7 @@
 <div class="problem-page">
   {#if contest && problem}
     <header class="problem-header card">
-      <a class="back-link-btn font-mono" href="/contests/{contest.id}">
+      <a class="back-link-btn font-mono" href="{base}/contests/{contest.id}">
         ← BACK_TO_CONTEST
       </a>
       <div class="problem-meta-row">
@@ -95,7 +96,7 @@
     <div class="empty-state card">
       <h2 class="empty-title font-mono">[error: task not found]</h2>
       <p class="empty-desc font-mono">the requested problem identifier does not exist or has been removed.</p>
-      <a href="/contests" class="button-primary font-mono" style="margin-top: 12px;">return_to_arena</a>
+      <a href="{base}/contests" class="button-primary font-mono" style="margin-top: 12px;">return_to_arena</a>
     </div>
   {/if}
 </div>

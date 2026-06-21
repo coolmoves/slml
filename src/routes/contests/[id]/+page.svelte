@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { app } from '$lib/stores/app.svelte';
+  import { base } from '$app/paths';
 
   const contestId = $derived($page.params.id);
   const contest = $derived(app.contests.find(c => c.id === contestId));
@@ -23,7 +24,7 @@
 <div class="contest-hub-page">
   {#if contest}
     <header class="arena-header card">
-      <a class="back-link-btn font-mono" href="/contests">
+      <a class="back-link-btn font-mono" href="{base}/contests">
         ← BACK_TO_ARENA
       </a>
       <div class="arena-meta-row">
@@ -67,13 +68,13 @@
               <tr>
                 <td class="font-mono task-code-cell">{problem.code}</td>
                 <td>
-                  <a href="/contests/{contest.id}/problems/{problem.id}" class="task-title-link font-mono">
+                  <a href="{base}/contests/{contest.id}/problems/{problem.id}" class="task-title-link font-mono">
                     {problem.title.toLowerCase()}
                   </a>
                 </td>
                 <td style="text-align: right" class="font-mono pts-text">{problem.points} pts</td>
                 <td style="text-align: right">
-                  <a href="/contests/{contest.id}/problems/{problem.id}" class="button-primary action-btn font-mono">
+                  <a href="{base}/contests/{contest.id}/problems/{problem.id}" class="button-primary action-btn font-mono">
                     VIEW_PROBLEM
                   </a>
                 </td>
@@ -121,7 +122,7 @@
     <div class="empty-state card">
       <h2 class="empty-title font-mono">[error: contest not found]</h2>
       <p class="empty-desc font-mono">the requested contest identifier does not exist.</p>
-      <a href="/contests" class="button-primary font-mono" style="margin-top: 12px;">return_to_arena</a>
+      <a href="{base}/contests" class="button-primary font-mono" style="margin-top: 12px;">return_to_arena</a>
     </div>
   {/if}
 </div>

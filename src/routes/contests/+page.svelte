@@ -1,5 +1,6 @@
 <script lang="ts">
   import { app } from '$lib/stores/app.svelte';
+  import { base } from '$app/paths';
 </script>
 
 <svelte:head>
@@ -33,7 +34,7 @@
                   <span class="dot-sep">|</span>
                   <span>{contest.problems.length} tasks</span>
                 </div>
-                <a class="button-primary action-btn font-mono" href="/contests/{contest.id}">
+                <a class="button-primary action-btn font-mono" href="{base}/contests/{contest.id}">
                   {contest.status === 'active' ? 'enter_round' : 'view_problems'}
                 </a>
               </div>
@@ -59,7 +60,7 @@
                   <span class="dot-sep">|</span>
                   <span>{contest.problems.length} tasks</span>
                 </div>
-                <a class="button-secondary action-btn font-mono" href="/contests/{contest.id}">
+                <a class="button-secondary action-btn font-mono" href="{base}/contests/{contest.id}">
                   review_problems
                 </a>
               </div>

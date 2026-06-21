@@ -1,29 +1,30 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import { base } from "$app/paths";
 </script>
 
 <header class="top-bar">
   <div class="top-bar-inner">
     <!-- Left Logo & Nav Section -->
     <div class="left-nav">
-      <a href="/" class="logo">
+      <a href="{base}/" class="logo">
         <span class="logo-bold font-mono">slml</span>
         <span class="logo-dot">.</span>
       </a>
 
       <nav class="nav-links">
         <a
-          href="/"
+          href="{base}/"
           class="nav-link font-mono"
-          class:active={$page.url.pathname === "/"}
+          class:active={$page.url.pathname === base || $page.url.pathname === base + "/"}
           id="nav-home"
         >
           blogs
         </a>
         <a
-          href="/contests"
+          href="{base}/contests"
           class="nav-link font-mono"
-          class:active={$page.url.pathname.startsWith("/contests")}
+          class:active={$page.url.pathname.startsWith(base + "/contests")}
           id="nav-contests"
         >
           contests
