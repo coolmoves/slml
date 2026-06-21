@@ -7,14 +7,6 @@
   const contest = $derived(app.contests.find(c => c.id === contestId));
 
   let activeTab = $state<'tasks' | 'standings'>('tasks');
-
-  // Update inner tab if query param 'tab' changes
-  $effect(() => {
-    const tab = $page.url.searchParams.get('tab');
-    if (tab === 'standings') {
-      activeTab = tab;
-    }
-  });
 </script>
 
 <svelte:head>
@@ -44,9 +36,6 @@
       <div class="arena-tabs">
         <button class="arena-tab font-mono" class:active={activeTab === 'tasks'} onclick={() => activeTab = 'tasks'}>
           tasks
-        </button>
-        <button class="arena-tab font-mono" class:active={activeTab === 'standings'} onclick={() => activeTab = 'standings'}>
-          standings
         </button>
       </div>
     </div>
@@ -88,36 +77,6 @@
           </tbody>
         </table>
       </div>
-    {:else if activeTab === 'standings'}
-      <div class="table-view card">
-        <table class="arena-table">
-          <thead>
-            <tr>
-              <th style="width: 80px">Rank</th>
-              <th>Username</th>
-              <th style="text-align: right">Solved</th>
-              <th style="text-align: right">Submissions</th>
-              <th style="text-align: right">Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {#each [...app.leaderboard].sort((a, b) => b.totalPoints - a.totalPoints) as entry, index}
-              <tr>
-                <td class="font-mono rank-number">#{index + 1}</td>
-                <td>
-                  <div class="standings-user font-mono">
-                    <span class="user-display">@{entry.username}</span>
-                  </div>
-                </td>
-                <td style="text-align: right" class="font-mono">{entry.solvedCount}</td>
-                <td style="text-align: right" class="font-mono">{entry.submissionsCount}</td>
-                <td class="score-cell font-mono">{entry.totalPoints} pts</td>
-              </tr>
-            {/each}
-          </tbody>
-        </table>
-      </div>
-    {/if}
   {:else}
     <div class="empty-state card">
       <h2 class="empty-title font-mono">[error: contest not found]</h2>
