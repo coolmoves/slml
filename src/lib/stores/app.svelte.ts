@@ -18,8 +18,8 @@ const parsedBlogs: Project[] = Object.entries(blogFiles).map(([path, content]) =
   const readme = content.replace(/<!--[\s\S]*?-->/, '').trim();
   const id = path.split('/').pop()?.replace('.md', '') || 'p_' + Date.now();
   const title = meta.title || 'Untitled Post';
-  const authorId = meta.authorId || 'DefaultUser';
-  const languages = meta.languages ? meta.languages.split(',').map(l => l.trim()) : ['Misc'];
+  const authorId = meta.authorId || 'Anonymous';
+  const languages = meta.languages ? meta.languages.split(',').map(l => l.trim()) : ['Misc','Other'];
   const tags = meta.tags ? meta.tags.split(',').map(t => t.trim()) : [];
 
   return {
@@ -42,7 +42,7 @@ const parsedBlogs: Project[] = Object.entries(blogFiles).map(([path, content]) =
     comments: [],
     shares: 0,
     views: 1,
-    createdAt: meta.createdAt || 'Just now',
+    createdAt: meta.createdAt || '01/01/2000',
     updatedAt: 'Just now',
     thumbnail: '',
     likedByUser: false,
