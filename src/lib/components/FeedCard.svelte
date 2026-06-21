@@ -60,7 +60,7 @@
   <header class="card-header">
     <div class="meta-row font-mono">
       <span class="author-badge">
-        <span class="author-avatar-stub">usr</span>
+        <span class="author-avatar-stub">👤︎</span>
         <span class="author-name">@{project.author.username}</span>
       </span>
       <span class="dot-separator">|</span>
