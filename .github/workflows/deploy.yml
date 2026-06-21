@@ -33,7 +33,14 @@ jobs:
         run: npm ci
 
       - name: Build Static Site
-        run: npm run build
+        run: |
+          if [ -f static/CNAME ] && [ -s static/CNAME ] && ! grep -q "domain.io" static/CNAME; then
+            echo "CNAME file exists and contains a custom domain. Building with empty BASE_PATH."
+            BASE_PATH="" npm run build
+          else
+            echo "No custom CNAME found (or placeholder domain.io is present). Building with BASE_PATH=/${{ github.event.repository.name }}."
+            BASE_PATH="/${{ github.event.repository.name }}" npm run build
+          fi
 
       - name: Upload Build Artifacts
         uses: actions/upload-pages-artifact@v3
