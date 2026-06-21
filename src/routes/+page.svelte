@@ -2,7 +2,7 @@
   import { app } from '$lib/stores/app.svelte';
   import FeedCard from '$lib/components/FeedCard.svelte';
 
-  const quickLangs = ['Rust', 'TypeScript', 'C++', 'Python', 'Go'];
+  const quickLangs = ['Rust', 'TypeScript', 'C++', 'Python', 'Go', 'Misc', 'Other'];
 </script>
 
 <svelte:head>
