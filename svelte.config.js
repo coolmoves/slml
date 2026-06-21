@@ -14,7 +14,7 @@ const config = {
 			strict: true
 		}),
 		prerender: {
-			handleUnseenRoutes: 'warning'
+			handleUnseenRoutes: 'warn'
 		}
 	}
 };
