@@ -3,7 +3,8 @@ title: Sample Post
 description: Description.
 languages: C++, Python
 tags: Programming, DSA
-createdAt: X Hours ago
+authorId: admin
+createdAt: dd/mm/yyyy
 -->
 # Main Heading
 
