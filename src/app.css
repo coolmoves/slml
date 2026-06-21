@@ -1,0 +1,297 @@
+/* ═══════════════════════════════════════════════════════════════
+   slml — Neo-Brutalist Geeky Light-Theme Design System
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap');
+
+:root {
+  /* Stark Brutalist Light Palette */
+  --background: #f4f4f5; /* zinc-100 */
+  --foreground: #09090b; /* zinc-950 */
+  
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  
+  --primary: #09090b;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #e4e4e7; /* zinc-200 */
+  --secondary-foreground: #09090b;
+  
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  
+  --accent: #fde047; /* Highlighter Yellow */
+  --accent-foreground: #09090b;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  --border: #09090b;
+  --border-width: 2px;
+  --ring: #09090b;
+
+  /* Typography - Geist Mono by default for a super geeky look */
+  --font-sans: 'Geist Mono', 'Geist', -apple-system, BlinkMacSystemFont, monospace;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Sharp geometric borders */
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+
+  /* Neo-brutalist solid offsets instead of soft shadows */
+  --shadow-sm: 2px 2px 0px 0px #09090b;
+  --shadow: 4px 4px 0px 0px #09090b;
+  --shadow-md: 6px 6px 0px 0px #09090b;
+  
+  /* Status Accents */
+  --color-success: #16a34a; /* green-600 */
+  --color-success-bg: #dcfce7; /* green-100 */
+  --color-warning: #ca8a04; /* yellow-600 */
+  --color-warning-bg: #fef9c3; /* yellow-100 */
+  --color-error: #dc2626; /* red-600 */
+  --color-error-bg: #fee2e2; /* red-100 */
+  --color-info: #2563eb;
+  --color-info-bg: #dbeafe;
+
+  /* Layout */
+  --header-height: 50px;
+  --z-sticky: 100;
+  --z-modal: 200;
+  
+  /* Sharp layout transition */
+  --transition-fast: 80ms ease-out;
+  --transition-base: 120ms ease-out;
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  font-size: 13px;
+  background-image: 
+    linear-gradient(rgba(9, 9, 11, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 9, 11, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--foreground);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+/* Inputs & Form Elements */
+input, textarea, select {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--foreground);
+  background: #ffffff;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  outline: none;
+  box-shadow: var(--shadow-sm);
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: #fef08a; /* active input turns highlighter yellow */
+  box-shadow: 3px 3px 0px 0px #09090b;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e4e4e7;
+  border-left: var(--border-width) solid var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 1px solid #ffffff;
+}
+
+/* Brutalist Cards */
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Buttons styling */
+.button-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 6px 14px;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.button-primary:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow);
+}
+
+.button-primary:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px 0px #09090b;
+}
+
+.button-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 6px 14px;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.button-secondary:hover {
+  background-color: #ffffff;
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow);
+}
+
+.button-outline {
+  background-color: #ffffff;
+  color: var(--foreground);
+  border: var(--border-width) solid var(--border);
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.button-outline:hover {
+  background-color: var(--accent);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow);
+}
+
+/* Badges */
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius);
+  text-transform: uppercase;
+  border: var(--border-width) solid var(--border);
+  box-shadow: 1px 1px 0px 0px #09090b;
+}
+
+.badge-active {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.badge-upcoming {
+  background-color: #93c5fd; /* blue-300 */
+  color: #09090b;
+}
+
+.badge-ended {
+  background-color: #e4e4e7;
+  color: #71717a;
+}
+
+/* Brutalist code blocks syntax highlighting */
+.syntax-comment {
+  color: #71717a;
+  font-style: italic;
+}
+
+.syntax-string {
+  color: #15803d; /* dark green */
+}
+
+.syntax-keyword {
+  color: #b91c1c; /* dark red */
+  font-weight: bold;
+}
+
+.syntax-type {
+  color: #1d4ed8; /* blue-700 */
+}
+
+.syntax-number {
+  color: #a21caf; /* purple-700 */
+}
+
+.syntax-decorator {
+  color: #be123c;
+}
+
+/* Global utilities */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
