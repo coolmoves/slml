@@ -2,7 +2,7 @@
 title: Title Of Problem
 points: 100
 code: A
-contestId: c1
+contestId: c4
 -->
 
 # Task A: Title Of Problem
