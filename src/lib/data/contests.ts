@@ -27,11 +27,11 @@ const parsedProblems = Object.entries(problemFiles).map(([path, content]) => {
 });
 const data: Contest[] = [
   {
-    id: 'c4',
-    title: 'slml algorithmic challenge #01',
-    description: 'A structural, lightweight competition focusing on memory efficiency and bitwise optimization.',
+    id: 'c1',
+    title: 'Contest c1',
+    description: 'A simple testing version.',
     startTime: 'live now',
-    duration: '2 hours',
+    duration: 'Not Specified',
     status: 'active',
     problems: parsedProblems.filter(p => p.contestId === 'c1').sort((a, b) => a.code.localeCompare(b.code))
   }
