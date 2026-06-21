@@ -158,6 +158,7 @@
     color: #ffffff;
     padding: 1px 4px;
     text-transform: uppercase;
+    border-radius:50%;
   }
 
   .author-name {
@@ -174,7 +175,7 @@
     font-weight: 900;
     color: var(--foreground);
     line-height: 1.2;
-    text-transform: lowercase;
+    text-transform: math-auto;
   }
 
   .card-body {
@@ -199,7 +200,7 @@
     margin-bottom: 6px;
     border-bottom: 1px solid var(--border);
     padding-bottom: 2px;
-    text-transform: lowercase;
+    text-transform: math-auto;
   }
 
   .markdown-content :global(.md-h2) {
@@ -208,7 +209,7 @@
     color: var(--foreground);
     margin-top: 12px;
     margin-bottom: 4px;
-    text-transform: lowercase;
+    text-transform: math-auto;
   }
 
   .markdown-content :global(.md-h3) {
@@ -217,7 +218,7 @@
     color: var(--foreground);
     margin-top: 10px;
     margin-bottom: 4px;
-    text-transform: lowercase;
+    text-transform: math-auto;
   }
 
   .markdown-content :global(.md-inline-code) {
