@@ -1,8 +1,8 @@
 <!--
-title: Sample Post
-description: Description.
-languages: C++, Python
-tags: Programming, DSA
+title: Best Programming Language
+description: The Best Programming Language is the BEST.
+languages: 
+tags: Programming
 authorId: coolmoves
 createdAt: 21/06/2026
 -->
