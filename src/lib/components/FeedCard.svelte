@@ -87,30 +87,32 @@
   </div>
 
   <!-- Expandable Code Block -->
-  <footer class="card-footer">
-    <button class="toggle-code-btn button-outline" onclick={() => showCode = !showCode}>
-      {showCode ? '[-] hide code' : '[+] expand code'}
-    </button>
+  {#if project.code && !project.code.startsWith('// Local markdown blog post:')}
+    <footer class="card-footer">
+      <button class="toggle-code-btn button-outline" onclick={() => showCode = !showCode}>
+        {showCode ? '[-] hide code' : '[+] expand code'}
+      </button>
 
-    {#if showCode}
-      <div class="code-window">
-        <div class="code-window-header">
-          <span class="window-title font-mono">file://{project.title.toLowerCase().replace(/\s+/g, '-')}.{project.languages[0] === 'Rust' ? 'rs' : 'ts'}</span>
-          <button class="copy-btn button-outline font-mono" onclick={handleCopy}>
-            {copied ? 'copied!' : 'copy_code'}
-          </button>
-        </div>
-        <div class="code-content">
-          <div class="line-numbers font-mono">
-            {#each codeLines as _, i}
-              <span class="line-num">{i + 1}</span>
-            {/each}
+      {#if showCode}
+        <div class="code-window">
+          <div class="code-window-header">
+            <span class="window-title font-mono">file://{project.title.toLowerCase().replace(/\s+/g, '-')}.{project.languages[0] === 'Rust' ? 'rs' : 'ts'}</span>
+            <button class="copy-btn button-outline font-mono" onclick={handleCopy}>
+              {copied ? 'copied!' : 'copy_code'}
+            </button>
           </div>
-          <pre class="code-text font-mono">{@html highlighted}</pre>
+          <div class="code-content">
+            <div class="line-numbers font-mono">
+              {#each codeLines as _, i}
+                <span class="line-num">{i + 1}</span>
+              {/each}
+            </div>
+            <pre class="code-text font-mono">{@html highlighted}</pre>
+          </div>
         </div>
-      </div>
-    {/if}
-  </footer>
+      {/if}
+    </footer>
+  {/if}
 </article>
 
 <style>
