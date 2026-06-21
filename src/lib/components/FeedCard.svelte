@@ -47,7 +47,12 @@
     // Double line breaks into paragraphs, single into breaks
     html = html.replace(/\n\n/g, '</p><p class="md-p">');
     html = html.replace(/\n/g, '<br />');
-    
+
+    // Image support (classic version)
+    html = html.replace(
+      /!\[([^\]]*)\]\(([^)]+)\)/g,
+      '<img class="md-image" src="$2" alt="$1" />'
+    );
     return '<p class="md-p">' + html + '</p>';
   }
 
